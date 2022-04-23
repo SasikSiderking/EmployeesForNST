@@ -1,5 +1,9 @@
 .App {
   /*text-align: center;*/
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .Employees-Wrapper{
@@ -31,13 +35,11 @@
 
 .Content{
   grid-template-columns: 10% 10% 50% 25%;
-  flex: 1 1 auto;
-  /*justify-items: center;*/
   font-size: calc( 12px + (16 - 10) * (100vw - 320px) / (1200 - 320));
-  margin: 5px;
   padding: 2px;
   border-bottom: 2px solid gray;
   align-items: center;
+  margin: 5px 5px 20px;
 }
 
 .EditButton{
@@ -45,7 +47,7 @@
   grid-template-columns: 50% 50%;
 }
 
-button{
+.EditButton > button{
   width: fit-content;
   height: fit-content;
 }
@@ -67,4 +69,19 @@ button{
     height: 3vw;
     width: auto;
   }
+}
+
+.Foot{
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+
+.Foot > button{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: none;
+  border-radius: 10%;
+  color: white;
+  background-color: cornflowerblue;
 }
