@@ -1,0 +1,120 @@
+.Employees-Wrapper{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 1vw;
+}
+
+.List{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    grid-auto-rows: minmax(20px,auto);
+    text-align: center;
+}
+
+.First-Name{
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+}
+.Second-Name{
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
+.Head{
+    background-color: lightgray;
+    border-top: 5px solid gray;
+    border-bottom: 2px solid gray;
+    padding: 5px;
+    font-size: calc( 18px + (20 - 16) * (100vw - 320px) / (1200 - 320));
+    font-weight: bold;
+    font-family: "Calibri Light", serif ;
+}
+
+.Content{
+    -ms-grid-columns: 10% 10% 50% 25%;
+    grid-template-columns: 10% 10% 50% 25%;
+    font-size: calc( 12px + (16 - 10) * (100vw - 320px) / (1200 - 320));
+    padding: 2px;
+    border-bottom: 2px solid gray;
+    align-items: center;
+    margin: 5px 5px 20px;
+}
+
+.Employee-icon{
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+}
+.Employee-name{
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+.Employee-second-name{
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+}
+.Functional-buttons{
+    -ms-grid-column: 4;
+    -ms-grid-row:1;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.Edit-button{
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+}
+.Delete-button{
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
+.Functional-buttons > button{
+    width: fit-content;
+    height: fit-content;
+}
+
+.App-icon {
+    height: 80%;
+    width: 60%;
+    border-radius: 50%;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+@media (min-width: 720px) {
+    .Functional-buttons{
+        display: block;
+        text-align: right;
+    }
+    .App-icon{
+        height: 3vw;
+        width: auto;
+    }
+    .Employee-icon{
+        height: 4vw;
+        width: 50%;
+    }
+}
+
+.Foot{
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+.Foot > button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-style: none;
+    border-radius: 10%;
+    color: white;
+    background-color: cornflowerblue;
+}

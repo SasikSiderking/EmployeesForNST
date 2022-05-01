@@ -1,10 +1,11 @@
 import './App.css';
 import React from "react";
-import TableHead from "./TableHead";
-import TableContent from "./TableContent";
-import TableFoot from "./TableFoot";
+import TableHead from "./Table/TableHead";
+import TableContent from "./Table/TableContent";
+import TableFoot from "./Table/TableFoot";
 
 function App() {
+
   return (
     <div className="App">
 
