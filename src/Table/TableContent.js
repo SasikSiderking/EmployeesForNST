@@ -5,6 +5,7 @@ import edit from "../images/edit.png";
 import del from "../images/delete.png";
 
 const TableContent = () => {
+
     return (
         <div>
             <div className="List Content">

@@ -1,14 +1,13 @@
 import React from "react";
 import "./modal.css";
 
-const Modal = ({active,setActive}) => {
+const Modal = ({active,form}) => {
     return (
-        <div className={ active ? "ModalBackground active" : "ModalBackground" } onClick={() => setActive(false)}>
-            <div className="ModalContent" onClick={e => e.stopPropagation()}>
-
+        <div className={ active ? "ModalBackground active" : "ModalBackground" }>
+            <div className={ active ? "ModalContent active" : "ModalContent" }>
+                {form}
             </div>
         </div>
     )
 };
-
 export default Modal;

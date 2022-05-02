@@ -23,27 +23,7 @@ function App() {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "Employees-Wrapper"
   }, /*#__PURE__*/_react.default.createElement(_TableHead.default, null), /*#__PURE__*/_react.default.createElement(_TableContent.default, null), /*#__PURE__*/_react.default.createElement(_TableFoot.default, null)));
-} // function App() {
-//   return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//               className="App-link"
-//               href="https://reactjs.org"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//   );
-// }
-
+}
 
 var _default = App;
 exports.default = _default;
