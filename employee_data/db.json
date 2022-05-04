@@ -1,9 +1,19 @@
 {
-  "Employee": [
+  "persons": [
     {
       "id": 0,
       "firstName": "Boba",
-      "lastName:": "Fett"
+      "lastName": "Fetch"
+    },
+    {
+      "id": 1,
+      "firstName": "Loop",
+      "lastName": "Skywalker"
+    },
+    {
+      "id": 2,
+      "firstName": "John",
+      "lastName": "Williams"
     }
   ]
 }

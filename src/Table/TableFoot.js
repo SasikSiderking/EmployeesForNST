@@ -3,9 +3,6 @@ import "./table.css";
 import Modal from "../ModalW/Modal";
 import CreateEmployeeForm from "../forms/CreateEmployeeForm";
 const TableFoot = () => {
-    const handleAddEmployee = () => {
-
-    }
     const[modalActive, setModalActive] = useState(false);
     return (
         <div className="Foot">

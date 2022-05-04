@@ -34,8 +34,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var TableFoot = function TableFoot() {
-  var handleAddEmployee = function handleAddEmployee() {};
-
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       modalActive = _useState2[0],
