@@ -15,6 +15,8 @@ var _TableContent = _interopRequireDefault(require("./Table/TableContent"));
 
 var _TableFoot = _interopRequireDefault(require("./Table/TableFoot"));
 
+var _reactToastify = require("react-toastify");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {

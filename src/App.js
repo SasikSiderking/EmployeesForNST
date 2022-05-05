@@ -3,6 +3,7 @@ import React from "react";
 import TableHead from "./Table/TableHead";
 import TableContent from "./Table/TableContent";
 import TableFoot from "./Table/TableFoot";
+import {ToastContainer} from "react-toastify";
 
 function App() {
 

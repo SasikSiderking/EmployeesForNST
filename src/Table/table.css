@@ -79,6 +79,7 @@
 .Functional-buttons > button{
     width: fit-content;
     height: fit-content;
+    cursor: pointer;
 }
 
 .App-icon {
@@ -117,4 +118,5 @@
     border-radius: 10%;
     color: white;
     background-color: cornflowerblue;
+    cursor: pointer;
 }

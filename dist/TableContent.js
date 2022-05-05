@@ -15,6 +15,8 @@ var _MakePersonRows = _interopRequireDefault(require("./MakePersonRows"));
 
 var _ReqNotification = _interopRequireDefault(require("../api/ReqNotification"));
 
+var _reactToastify = require("react-toastify");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TableContent = function TableContent() {
@@ -26,7 +28,7 @@ var TableContent = function TableContent() {
       loading = _useCustomGet.loading;
 
   if (loading) return /*#__PURE__*/_react.default.createElement("h1", null, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...");
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _MakePersonRows.default)(data), (0, _ReqNotification.default)(status));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _MakePersonRows.default)(data), /*#__PURE__*/_react.default.createElement(_reactToastify.ToastContainer, null), (0, _ReqNotification.default)(status));
 };
 
 var _default = TableContent;
