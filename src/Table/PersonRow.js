@@ -1,7 +1,7 @@
-import React from "react";
 import icon from "../images/employee-square.png";
 import edit from "../images/edit.png";
 import del from "../images/delete.png";
+import React from "react";
 
 const PersonRow = (props) => {
     return(
@@ -18,4 +18,4 @@ const PersonRow = (props) => {
         </div>
     )
 }
-export default PersonRow;
+export default PersonRow

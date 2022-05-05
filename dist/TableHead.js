@@ -9,14 +9,10 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./table.css");
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    default: obj
-  };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TableHead = function TableHead() {
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("header", {
     className: "List Head"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "First-Name"

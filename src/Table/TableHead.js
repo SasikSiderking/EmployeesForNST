@@ -3,7 +3,7 @@ import "./table.css";
 
 const TableHead = () => {
     return (
-        <div className="List Head">
+        <header className="List Head">
             <div className="First-Name">
                 Имя
             </div>
@@ -13,7 +13,7 @@ const TableHead = () => {
             <div className="Functional-Buttons">
                 {/*Действие*/}
             </div>
-        </div>
+        </header>
     )
 }
 export default TableHead;

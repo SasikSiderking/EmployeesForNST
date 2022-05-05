@@ -1,0 +1,1 @@
+{"version":3,"file":"v1.js","names":["axios","create","baseURL"],"sources":["../src/api/v1.js"],"sourcesContent":["import axios from \"axios\";\r\n\r\nexport default axios.create({\r\n    baseURL: \"http://localhost:9000\"//<--host url\r\n});"],"mappings":";;;;;;;AAAA;;;;eAEeA,eAAMC,MAAN,CAAa;EACxBC,OAAO,EAAE,uBADe,CACQ;;AADR,CAAb,C"}

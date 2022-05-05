@@ -1,41 +1,25 @@
-import React, {useEffect, useState} from "react";
+import useCustomGet from "../api/useCustomGet";
+import React from "react";
 import "./table.css";
-import PersonRow from "./PersonRow";
+import MakePersonRows from "./MakePersonRows";
+import ReqNotification from "../api/ReqNotification";
 
 const TableContent = () => {
-    const url = 'http://localhost:9000/persons';
 
-    const [persons, setPersons] = useState([]);
+    const get = "/persons"
 
-    useEffect(() => {
-        const fetchItems = async () => {
-            try {
-                const response = await fetch(url);
-                // console.log(response.status);
-                const listItems = await response.json();
-                setPersons(listItems);
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        (async () => await fetchItems())();
-    }, [])
-    const createPersonRow = (person) => {
-        return (
-            <PersonRow
-                key={person.id}
-                firstName={person.firstName}
-                lastName={person.lastName}
-            />
-        )
-    }
+    const {data, status, loading} = useCustomGet(get);
 
+    if (loading) return (
+        <h1>Загрузка...</h1>
+    )
     return (
-        <div>
+        <>
             {
-                persons.map(createPersonRow)
+                MakePersonRows(data)
             }
-        </div>
+            {ReqNotification(status)}
+        </>
     )
 }
 export default TableContent;

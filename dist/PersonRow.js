@@ -5,13 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
-
 var _employeeSquare = _interopRequireDefault(require("../images/employee-square.png"));
 
 var _edit = _interopRequireDefault(require("../images/edit.png"));
 
 var _delete = _interopRequireDefault(require("../images/delete.png"));
+
+var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
