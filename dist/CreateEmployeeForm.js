@@ -57,15 +57,14 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              e.preventDefault();
-              _context.next = 3;
+              _context.next = 2;
               return (0, _CustomPost.default)("/persons", firstName, lastName);
 
-            case 3:
+            case 2:
               status = _context.sent;
               (0, _ReqNotification.default)(status);
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -90,7 +89,6 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
     className: "Back-Button"
   }, "\u041D\u0430\u0437\u0430\u0434 \u043A \u0441\u043F\u0438\u0441\u043A\u0443"), /*#__PURE__*/_react.default.createElement("input", {
     autoFocus: true,
-    id: true,
     type: "text",
     placeholder: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043C\u044F \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0430",
     required: true,
@@ -99,7 +97,6 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
       return setFirstName(e.target.value);
     }
   }), /*#__PURE__*/_react.default.createElement("input", {
-    id: true,
     type: "text",
     placeholder: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0444\u0430\u043C\u0438\u043B\u0438\u044E \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0430",
     required: true,

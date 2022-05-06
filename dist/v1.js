@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.post = exports.get = exports.default = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -15,4 +15,10 @@ var _default = _axios.default.create({
 });
 
 exports.default = _default;
+var get = "/persons";
+exports.get = get;
+var post = "/persons"; // export const put = ""
+// export const delete = ""
+
+exports.post = post;
 //# sourceMappingURL=v1.js.map

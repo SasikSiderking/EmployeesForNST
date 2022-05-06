@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./form.css"
+import "./form.css";
 import ReqNotification from "../api/ReqNotification";
 import CustomPost from "../api/CustomPost";
 
@@ -8,7 +8,7 @@ const CreateEmployeeForm=({setActive}) => {
     const [lastName, setLastName] = useState("");
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         const status = await CustomPost("/persons", firstName, lastName);
         ReqNotification(status);
@@ -19,11 +19,11 @@ const CreateEmployeeForm=({setActive}) => {
             <header>Создание сотрудника</header>
             <div className="Form-Content">
                 <a onClick={() => {setActive(false)}} className="Back-Button">Назад к списку</a>
-                <input autoFocus id type="text" placeholder="Введите имя сотрудника" required
+                <input autoFocus type="text" placeholder="Введите имя сотрудника" required
                        value={firstName}
                        onChange={(e) => setFirstName(e.target.value)}
                 />
-                <input id type="text" placeholder="Введите фамилию сотрудника" required
+                <input type="text" placeholder="Введите фамилию сотрудника" required
                        value={lastName}
                        onChange={(e) => setLastName(e.target.value)}
                 />

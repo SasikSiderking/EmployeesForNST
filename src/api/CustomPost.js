@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import api from "./v1";
 
 async function CustomPost(req,firstName,lastName) {
-    const id=null
     const Person = {firstName: firstName,lastName: lastName}
     let status=null;
 

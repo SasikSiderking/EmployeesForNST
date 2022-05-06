@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import PersonRow from "./PersonRow";
 
 const MakePersonRows = (data) => {
+    
+    // const [personRows,setPersonRows] = useState(null)
 
 
     const createPersonRow = (person) => {
