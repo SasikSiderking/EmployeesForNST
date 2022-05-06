@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import api from "./v1";
 
-function useCustomGet(req) {
-
+function CustomGet(req) {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -21,4 +20,4 @@ function useCustomGet(req) {
     return {data, status, loading, error};
 }
 
-export default useCustomGet;
+export default CustomGet;

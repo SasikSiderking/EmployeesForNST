@@ -1,10 +1,7 @@
 import React, {useState} from "react";
 import PersonRow from "./PersonRow";
 
-const MakePersonRows = (data) => {
-    
-    // const [personRows,setPersonRows] = useState(null)
-
+const MakePersonRows = (persons) => {
 
     const createPersonRow = (person) => {
         return (
@@ -18,7 +15,7 @@ const MakePersonRows = (data) => {
 
     return(
         <main>
-            {data.map(createPersonRow)}
+            {persons.map(createPersonRow)}
         </main>
     )
 }

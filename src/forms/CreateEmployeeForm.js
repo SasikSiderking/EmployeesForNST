@@ -1,17 +1,21 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "./form.css";
 import ReqNotification from "../api/ReqNotification";
-import CustomPost from "../api/CustomPost";
+import NetworkRequest from "../api/NetworkRequest";
+import PersonContext from "../Context/PersonContext";
 
 const CreateEmployeeForm=({setActive}) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const {persons,setPersons} = useContext(PersonContext);
+    const id = persons.length ? persons[persons.length - 1].id + 1 : 1;
+    const Person = {id,firstName: firstName,lastName: lastName}
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
-
-        const status = await CustomPost("/persons", firstName, lastName);
+        e.preventDefault();
+        const status = await NetworkRequest("post",Person);
         ReqNotification(status);
+        setPersons([...persons,Person])
     }
 
     return(

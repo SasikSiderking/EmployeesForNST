@@ -5,14 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _axios = _interopRequireDefault(require("axios"));
+var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = _axios.default.create({
-  baseURL: "http://localhost:9000" //<--host url
+var PersonContext = /*#__PURE__*/_react.default.createContext();
 
-});
-
+var _default = PersonContext;
 exports.default = _default;
-//# sourceMappingURL=v1.js.map
+//# sourceMappingURL=PersonContext.js.map

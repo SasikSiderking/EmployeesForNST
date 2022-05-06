@@ -50,6 +50,7 @@ function useCustomGet(req) {
       status = _useState8[0],
       setStatus = _useState8[1];
 
+  console.log("get called");
   (0, _react.useEffect)(function () {
     setLoading(true);
 

@@ -13,13 +13,23 @@ require("./form.css");
 
 var _ReqNotification = _interopRequireDefault(require("../api/ReqNotification"));
 
-var _CustomPost = _interopRequireDefault(require("../api/CustomPost"));
+var _NetworkRequest = _interopRequireDefault(require("../api/NetworkRequest"));
+
+var _PersonContext = _interopRequireDefault(require("../Context/PersonContext"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -50,6 +60,17 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
       lastName = _useState4[0],
       setLastName = _useState4[1];
 
+  var _useContext = (0, _react.useContext)(_PersonContext.default),
+      persons = _useContext.persons,
+      setPersons = _useContext.setPersons;
+
+  var id = persons.length ? persons[persons.length - 1].id + 1 : 1;
+  var Person = {
+    id: id,
+    firstName: firstName,
+    lastName: lastName
+  };
+
   var handleSubmit = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
       var status;
@@ -57,14 +78,16 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return (0, _CustomPost.default)("/persons", firstName, lastName);
+              e.preventDefault();
+              _context.next = 3;
+              return (0, _NetworkRequest.default)("post", Person);
 
-            case 2:
+            case 3:
               status = _context.sent;
               (0, _ReqNotification.default)(status);
+              setPersons([].concat(_toConsumableArray(persons), [Person]));
 
-            case 4:
+            case 6:
             case "end":
               return _context.stop();
           }

@@ -7,23 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("./App.css");
-
 var _react = _interopRequireWildcard(require("react"));
 
-var _TableHead = _interopRequireDefault(require("./Table/TableHead"));
-
-var _TableContent = _interopRequireDefault(require("./Table/TableContent"));
-
-var _TableFoot = _interopRequireDefault(require("./Table/TableFoot"));
-
-var _reactToastify = require("react-toastify");
-
-var _ReqNotification = _interopRequireDefault(require("./api/ReqNotification"));
-
-var _NetworkRequest2 = _interopRequireDefault(require("./api/NetworkRequest"));
-
-var _PersonContext = _interopRequireDefault(require("./Context/PersonContext"));
+var _v = _interopRequireDefault(require("./v1"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43,44 +29,47 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function App() {
-  var _NetworkRequest = (0, _NetworkRequest2.default)("get"),
-      data = _NetworkRequest.data,
-      status = _NetworkRequest.status,
-      loading = _NetworkRequest.loading;
-
+function CustomGet(req) {
   var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      persons = _useState2[0],
-      setPersons = _useState2[1];
+      data = _useState2[0],
+      setData = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(true),
+  var _useState3 = (0, _react.useState)(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      firstLaunch = _useState4[0],
-      setFirstLaunch = _useState4[1];
+      error = _useState4[0],
+      setError = _useState4[1];
 
-  if (status && firstLaunch) {
-    (0, _ReqNotification.default)(status);
-    setFirstLaunch(false);
-    setPersons(data);
-  }
+  var _useState5 = (0, _react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
 
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "App"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "Employees-Wrapper"
-  }, /*#__PURE__*/_react.default.createElement(_TableHead.default, null), /*#__PURE__*/_react.default.createElement(_PersonContext.default.Provider, {
-    value: {
-      persons: persons,
-      setPersons: setPersons
-    }
-  }, status ? /*#__PURE__*/_react.default.createElement(_TableContent.default, {
-    persons: persons,
+  var _useState7 = (0, _react.useState)(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      status = _useState8[0],
+      setStatus = _useState8[1];
+
+  (0, _react.useEffect)(function () {
+    setLoading(true);
+
+    _v.default.get(req).then(function (response) {
+      setData(response.data);
+      setStatus(response.status);
+    }).catch(function (err) {
+      return setError(err);
+    }).finally(function () {
+      setLoading(false);
+    });
+  }, [req]);
+  return {
+    data: data,
     status: status,
-    loading: loading
-  }) : null, /*#__PURE__*/_react.default.createElement(_TableFoot.default, null)), /*#__PURE__*/_react.default.createElement(_reactToastify.ToastContainer, null)));
+    loading: loading,
+    error: error
+  };
 }
 
-var _default = App;
+var _default = CustomGet;
 exports.default = _default;
-//# sourceMappingURL=App.js.map
+//# sourceMappingURL=CustomGet.js.map
