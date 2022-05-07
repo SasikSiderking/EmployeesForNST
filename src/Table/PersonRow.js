@@ -12,7 +12,9 @@ const PersonRow = (props) => {
             <div className="Functional-buttons">
                 <button className="Edit-button" type="button"><img src={edit} alt="edit" className="App-icon"/>
                 </button>
-                <button className="Delete-button" type="button"><img src={del} alt="delete" className="App-icon"/>
+                <button className="Delete-button"
+                        onClick={() => {props.deleteButtonHandler(props.id,props.firstName,props.lastName)}}
+                        type="button"><img src={del} alt="delete" className="App-icon"/>
                 </button>
             </div>
         </div>

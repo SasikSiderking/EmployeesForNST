@@ -37,6 +37,9 @@ var PersonRow = function PersonRow(props) {
     className: "App-icon"
   })), /*#__PURE__*/_react.default.createElement("button", {
     className: "Delete-button",
+    onClick: function onClick() {
+      props.deleteButtonHandler(props.id, props.firstName, props.lastName);
+    },
     type: "button"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: _delete.default,

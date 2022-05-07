@@ -11,7 +11,7 @@ const CreateEmployeeForm=({setActive}) => {
     const id = persons.length ? persons[persons.length - 1].id + 1 : 1;
     const Person = {id,firstName: firstName,lastName: lastName}
 
-    const handleSubmit = async (e) => {
+    const handlePost = async (e) => {
         e.preventDefault();
         const status = await NetworkRequest("post",Person);
         ReqNotification(status);
@@ -19,7 +19,7 @@ const CreateEmployeeForm=({setActive}) => {
     }
 
     return(
-        <form className="Employee-Form-Wrapper" onSubmit={handleSubmit}>
+        <form className="Employee-Form-Wrapper" onSubmit={handlePost}>
             <header>Создание сотрудника</header>
             <div className="Form-Content">
                 <a onClick={() => {setActive(false)}} className="Back-Button">Назад к списку</a>

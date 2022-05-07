@@ -1,5 +1,5 @@
 import React from "react";
-import api from "./v1";
+import api from "../v1";
 
 const CustomPost = async (req,Person) => {
     let status=null;

@@ -71,7 +71,7 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
     lastName: lastName
   };
 
-  var handleSubmit = /*#__PURE__*/function () {
+  var handlePost = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
       var status;
       return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -95,14 +95,14 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
       }, _callee);
     }));
 
-    return function handleSubmit(_x) {
+    return function handlePost(_x) {
       return _ref2.apply(this, arguments);
     };
   }();
 
   return /*#__PURE__*/_react.default.createElement("form", {
     className: "Employee-Form-Wrapper",
-    onSubmit: handleSubmit
+    onSubmit: handlePost
   }, /*#__PURE__*/_react.default.createElement("header", null, "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0430"), /*#__PURE__*/_react.default.createElement("div", {
     className: "Form-Content"
   }, /*#__PURE__*/_react.default.createElement("a", {

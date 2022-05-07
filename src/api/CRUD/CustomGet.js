@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import api from "./v1";
+import api from "../v1";
 
 function CustomGet(req) {
     const [data, setData] = useState([]);
