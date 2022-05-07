@@ -10,7 +10,7 @@ const ReqNotification = (status) => {
         else if((status>=400 && status<404) || (status>404 && status<500)){
             toast.warn("Неверный запрос");
         }
-        else if(status===404){
+        else if(status===404 || status===undefined){
             toast.warn("Сущность не найдена в системе");
         }
         else if(status>=500){

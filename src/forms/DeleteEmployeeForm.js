@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import NetworkRequest from "../api/NetworkRequest";
-import ReqNotification from "../api/ReqNotification";
 import PersonContext from "../Context/PersonContext";
 
 const DeleteEmployeeForm = ({id,firstName,lastName,setActive}) => {
@@ -8,10 +7,12 @@ const DeleteEmployeeForm = ({id,firstName,lastName,setActive}) => {
 
     const handleDelete = async (e,id) => {
         e.preventDefault();
-        const status = await NetworkRequest("delete",null,null,id);
-        ReqNotification(status);
-        const newPersons = persons.filter(person => person.id !== id);
-        setPersons(newPersons)
+        const Person = {id,firstName: null,lastName: null};
+        const responseData = await NetworkRequest("delete",Person);
+        if(responseData === undefined){
+            const newPersons = persons.filter(person => person.id !== id);
+            setPersons(newPersons);
+        }
     }
 
     return(

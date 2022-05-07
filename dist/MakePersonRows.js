@@ -11,14 +11,15 @@ var _PersonRow = _interopRequireDefault(require("./PersonRow"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var MakePersonRows = function MakePersonRows(persons, deleteButtonHandler) {
+var MakePersonRows = function MakePersonRows(persons, deleteButtonHandler, editButtonHandler) {
   var createPersonRow = function createPersonRow(person) {
     return /*#__PURE__*/_react.default.createElement(_PersonRow.default, {
       key: person.id,
       id: person.id,
       firstName: person.firstName,
       lastName: person.lastName,
-      deleteButtonHandler: deleteButtonHandler
+      deleteButtonHandler: deleteButtonHandler,
+      editButtonHandler: editButtonHandler
     });
   };
 

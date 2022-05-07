@@ -19,7 +19,7 @@ var ReqNotification = function ReqNotification(status) {
       _reactToastify.toast.success("Успешное выполнение запроса");
     } else if (status >= 400 && status < 404 || status > 404 && status < 500) {
       _reactToastify.toast.warn("Неверный запрос");
-    } else if (status === 404) {
+    } else if (status === 404 || status === undefined) {
       _reactToastify.toast.warn("Сущность не найдена в системе");
     } else if (status >= 500) {
       _reactToastify.toast.error("Серверная ошибка");

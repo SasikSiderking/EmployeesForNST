@@ -1,23 +1,30 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import api from "../v1";
+import ReqNotification from "../../ErrorCatching/ReqNotification";
 
-function CustomGet(req) {
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [status,setStatus] = useState(null);
+const CustomGet = async (req,id) => {
+    let data = [];
 
-    useEffect(() => {
-        setLoading(true);
-        api
-            .get(req)
-            .then((response) => {setData(response.data);setStatus(response.status)
-            })
-            .catch((err) => setError(err))
-            .finally(() => {setLoading(false);});
-    }, [req])
+    try{
+        const response = await api.get(req? req+"/"+id : req);
+        if(response && response.data){
+            data = response.data;
+            // ReqNotification(status);
+        }
+    }
+    catch(err){
+        if(err.response){
+            console.log(err.response.data);
+            console.log(err.response.status);
+            console.log(err.response.headers);
+        }
+        else{
+            // ReqNotification(status);
+            console.log("Error: "+err)
+        }
+    }
 
-    return {data, status, loading, error};
+    return (data);
 }
 
 export default CustomGet;

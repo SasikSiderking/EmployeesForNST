@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import "./form.css";
-import ReqNotification from "../api/ReqNotification";
 import NetworkRequest from "../api/NetworkRequest";
 import PersonContext from "../Context/PersonContext";
 
@@ -13,8 +12,7 @@ const CreateEmployeeForm=({setActive}) => {
 
     const handlePost = async (e) => {
         e.preventDefault();
-        const status = await NetworkRequest("post",Person);
-        ReqNotification(status);
+        await NetworkRequest("post",Person);
         setPersons([...persons,Person])
     }
 

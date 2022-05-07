@@ -17,6 +17,8 @@ var _Modal = _interopRequireDefault(require("../ModalW/Modal"));
 
 var _DeleteEmployeeForm = _interopRequireDefault(require("../forms/DeleteEmployeeForm"));
 
+var _EditEmployeeForm = _interopRequireDefault(require("../forms/EditEmployeeForm"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -44,36 +46,58 @@ var TableContent = function TableContent(_ref) {
       id = _useState2[0],
       setId = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(null),
+  var _useState3 = (0, _react.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       firstName = _useState4[0],
       setFirstName = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(null),
+  var _useState5 = (0, _react.useState)(""),
       _useState6 = _slicedToArray(_useState5, 2),
       lastName = _useState6[0],
       setLastName = _useState6[1];
 
   var _useState7 = (0, _react.useState)(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      modalActive = _useState8[0],
-      setModalActive = _useState8[1];
+      modalDeleteActive = _useState8[0],
+      setModalDeleteActive = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      modalEditActive = _useState10[0],
+      setModalEditActive = _useState10[1];
 
   var deleteButtonHandler = function deleteButtonHandler(id, firstName, lastName) {
     setId(id);
     setFirstName(firstName);
     setLastName(lastName);
-    setModalActive(true);
+    setModalDeleteActive(true);
+  };
+
+  var editButtonHandler = function editButtonHandler(id, firstName, lastName) {
+    setId(id);
+    setFirstName(firstName);
+    setLastName(lastName);
+    setModalEditActive(true);
   };
 
   if (loading) return /*#__PURE__*/_react.default.createElement("h1", null, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...");
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _MakePersonRows.default)(persons, deleteButtonHandler), /*#__PURE__*/_react.default.createElement(_Modal.default, {
-    active: modalActive,
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _MakePersonRows.default)(persons, deleteButtonHandler, editButtonHandler), /*#__PURE__*/_react.default.createElement(_Modal.default, {
+    active: modalDeleteActive,
     form: /*#__PURE__*/_react.default.createElement(_DeleteEmployeeForm.default, {
       id: id,
       firstName: firstName,
       lastName: lastName,
-      setActive: setModalActive
+      setActive: setModalDeleteActive
+    })
+  }), /*#__PURE__*/_react.default.createElement(_Modal.default, {
+    active: modalEditActive,
+    form: /*#__PURE__*/_react.default.createElement(_EditEmployeeForm.default, {
+      id: id,
+      firstName: firstName,
+      setFirstName: setFirstName,
+      lastName: lastName,
+      setLastName: setLastName,
+      setActive: setModalEditActive
     })
   }));
 };

@@ -3,19 +3,28 @@ import "./table.css";
 import MakePersonRows from "./MakePersonRows";
 import Modal from "../ModalW/Modal";
 import DeleteEmployeeForm from "../forms/DeleteEmployeeForm";
+import EditEmployeeForm from "../forms/EditEmployeeForm";
 
 const TableContent = ({persons,loading}) => {
 
     const [id,setId] = useState(null);
-    const[firstName,setFirstName] = useState(null);
-    const[lastName,setLastName] = useState(null);
-    const[modalActive, setModalActive] = useState(false);
+    const[firstName,setFirstName] = useState("");
+    const[lastName,setLastName] = useState("");
+    const[modalDeleteActive, setModalDeleteActive] = useState(false);
+    const[modalEditActive, setModalEditActive] = useState(false);
 
     const deleteButtonHandler = (id,firstName,lastName) => {
         setId(id);
         setFirstName(firstName);
         setLastName(lastName);
-        setModalActive(true);
+        setModalDeleteActive(true);
+    }
+
+    const editButtonHandler = (id,firstName,lastName) => {
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setModalEditActive(true);
     }
 
     if (loading) return (
@@ -24,9 +33,10 @@ const TableContent = ({persons,loading}) => {
     return (
         <>
             {
-                MakePersonRows(persons,deleteButtonHandler)
+                MakePersonRows(persons,deleteButtonHandler,editButtonHandler)
             }
-            <Modal active={modalActive} form={<DeleteEmployeeForm id={id} firstName={firstName} lastName={lastName} setActive={setModalActive}/>}/>
+            <Modal active={modalDeleteActive} form={<DeleteEmployeeForm id={id} firstName={firstName} lastName={lastName} setActive={setModalDeleteActive}/>}/>
+            <Modal active={modalEditActive} form={<EditEmployeeForm id={id} firstName={firstName} setFirstName={setFirstName} lastName={lastName} setLastName={setLastName} setActive={setModalEditActive}/>}/>
         </>
     )
 }

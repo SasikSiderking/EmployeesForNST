@@ -30,6 +30,9 @@ var PersonRow = function PersonRow(props) {
     className: "Functional-buttons"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "Edit-button",
+    onClick: function onClick() {
+      props.editButtonHandler(props.id, props.firstName, props.lastName);
+    },
     type: "button"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: _edit.default,

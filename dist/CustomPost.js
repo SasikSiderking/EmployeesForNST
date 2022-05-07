@@ -9,6 +9,10 @@ var _react = _interopRequireDefault(require("react"));
 
 var _v = _interopRequireDefault(require("../v1"));
 
+var _ErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ErrorCatcher"));
+
+var _ReqNotification = _interopRequireDefault(require("../../ErrorCatching/ReqNotification"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -30,23 +34,24 @@ var CustomPost = /*#__PURE__*/function () {
           case 4:
             response = _context.sent;
             status = response.status;
-            _context.next = 11;
+            (0, _ReqNotification.default)(status);
+            _context.next = 12;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 9:
+            _context.prev = 9;
             _context.t0 = _context["catch"](1);
-            console.log("Error: " + _context.t0);
-
-          case 11:
-            return _context.abrupt("return", status);
+            (0, _ErrorCatcher.default)(_context.t0, status);
 
           case 12:
+            return _context.abrupt("return", status);
+
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 8]]);
+    }, _callee, null, [[1, 9]]);
   }));
 
   return function CustomPost(_x, _x2) {

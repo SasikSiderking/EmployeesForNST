@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _v = _interopRequireDefault(require("../v1"));
 
+var _ErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ErrorCatcher"));
+
 var _ReqNotification = _interopRequireDefault(require("../../ErrorCatching/ReqNotification"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -17,57 +19,52 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var CustomGet = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, id) {
-    var data, response;
+var CustomPut = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, updatedPerson) {
+    var responseData, status, id, response;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            data = [];
-            _context.prev = 1;
-            _context.next = 4;
-            return _v.default.get(req ? req + "/" + id : req);
+            responseData = undefined;
+            status = undefined;
+            id = updatedPerson.id;
+            updatedPerson.id = null;
+            _context.prev = 4;
+            _context.next = 7;
+            return _v.default.put(req + "/" + id, updatedPerson);
 
-          case 4:
+          case 7:
             response = _context.sent;
-
-            if (response && response.data) {
-              data = response.data; // ReqNotification(status);
-            }
-
-            _context.next = 11;
+            status = response.status;
+            (0, _ReqNotification.default)(status);
+            responseData = response.data;
+            _context.next = 16;
             break;
 
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](1);
+          case 13:
+            _context.prev = 13;
+            _context.t0 = _context["catch"](4);
+            (0, _ErrorCatcher.default)(_context.t0, status);
 
-            if (_context.t0.response) {
-              console.log(_context.t0.response.data);
-              console.log(_context.t0.response.status);
-              console.log(_context.t0.response.headers);
-            } else {
-              // ReqNotification(status);
-              console.log("Error: " + _context.t0);
-            }
+          case 16:
+            return _context.abrupt("return", {
+              responseData: responseData
+            });
 
-          case 11:
-            return _context.abrupt("return", data);
-
-          case 12:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 8]]);
+    }, _callee, null, [[4, 13]]);
   }));
 
-  return function CustomGet(_x, _x2) {
+  return function CustomPut(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
 
-var _default = CustomGet;
+var _default = CustomPut;
 exports.default = _default;
-//# sourceMappingURL=CustomGet.js.map
+//# sourceMappingURL=CustomPut.js.map

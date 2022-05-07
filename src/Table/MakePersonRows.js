@@ -1,7 +1,7 @@
 import React from "react";
 import PersonRow from "./PersonRow";
 
-const MakePersonRows = (persons,deleteButtonHandler) => {
+const MakePersonRows = (persons,deleteButtonHandler,editButtonHandler) => {
 
 
     const createPersonRow = (person) => {
@@ -12,6 +12,7 @@ const MakePersonRows = (persons,deleteButtonHandler) => {
                 firstName={person.firstName}
                 lastName={person.lastName}
                 deleteButtonHandler = {deleteButtonHandler}
+                editButtonHandler = {editButtonHandler}
             />
         )
     }

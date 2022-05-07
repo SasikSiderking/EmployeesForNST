@@ -11,8 +11,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 require("./form.css");
 
-var _ReqNotification = _interopRequireDefault(require("../api/ReqNotification"));
-
 var _NetworkRequest = _interopRequireDefault(require("../api/NetworkRequest"));
 
 var _PersonContext = _interopRequireDefault(require("../Context/PersonContext"));
@@ -73,7 +71,6 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
 
   var handlePost = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var status;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -83,11 +80,9 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
               return (0, _NetworkRequest.default)("post", Person);
 
             case 3:
-              status = _context.sent;
-              (0, _ReqNotification.default)(status);
               setPersons([].concat(_toConsumableArray(persons), [Person]));
 
-            case 6:
+            case 4:
             case "end":
               return _context.stop();
           }

@@ -19,17 +19,21 @@ var _TableFoot = _interopRequireDefault(require("./Table/TableFoot"));
 
 var _reactToastify = require("react-toastify");
 
-var _ReqNotification = _interopRequireDefault(require("./api/ReqNotification"));
-
-var _NetworkRequest2 = _interopRequireDefault(require("./api/NetworkRequest"));
+var _ReqNotification = _interopRequireDefault(require("./ErrorCatching/ReqNotification"));
 
 var _PersonContext = _interopRequireDefault(require("./Context/PersonContext"));
+
+var _v = _interopRequireDefault(require("./api/v1"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -44,27 +48,75 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function App() {
-  var _NetworkRequest = (0, _NetworkRequest2.default)("get"),
-      data = _NetworkRequest.data,
-      status = _NetworkRequest.status,
-      loading = _NetworkRequest.loading;
-
-  var _useState = (0, _react.useState)([]),
+  var _useState = (0, _react.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
-      persons = _useState2[0],
-      setPersons = _useState2[1];
+      status = _useState2[0],
+      setStatus = _useState2[1];
 
   var _useState3 = (0, _react.useState)(true),
       _useState4 = _slicedToArray(_useState3, 2),
-      firstLaunch = _useState4[0],
-      setFirstLaunch = _useState4[1];
+      loading = _useState4[0],
+      setLoading = _useState4[1];
 
-  if (status && firstLaunch) {
-    (0, _ReqNotification.default)(status);
-    setFirstLaunch(false);
-    setPersons(data);
-  }
+  var _useState5 = (0, _react.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      persons = _useState6[0],
+      setPersons = _useState6[1];
 
+  (0, _react.useEffect)(function () {
+    var getPersons = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var response;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return _v.default.get("/persons");
+
+              case 3:
+                response = _context.sent;
+
+                if (response && response.data) {
+                  setStatus(response.status);
+                  setPersons(response.data);
+                  setLoading(false);
+                  (0, _ReqNotification.default)(response.status);
+                }
+
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+
+                if (_context.t0.response) {
+                  console.log(_context.t0.response.data);
+                  console.log(_context.t0.response.status);
+                  console.log(_context.t0.response.headers);
+                  (0, _ReqNotification.default)(_context.t0.response.status);
+                } else {
+                  (0, _ReqNotification.default)(404);
+                  console.log("Error: " + _context.t0);
+                }
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }));
+
+      return function getPersons() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    getPersons();
+  }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "App"
   }, /*#__PURE__*/_react.default.createElement("div", {
