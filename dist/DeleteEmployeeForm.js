@@ -52,7 +52,7 @@ var DeleteEmployeeForm = function DeleteEmployeeForm(_ref) {
             case 4:
               responseData = _context.sent;
 
-              if (responseData === undefined) {
+              if (responseData !== undefined) {
                 newPersons = persons.filter(function (person) {
                   return person.id !== id;
                 });

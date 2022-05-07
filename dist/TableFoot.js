@@ -13,7 +13,7 @@ require("./table.css");
 
 var _Modal = _interopRequireDefault(require("../ModalW/Modal"));
 
-var _CreateEmployeeForm = _interopRequireDefault(require("../forms/CreateEmployeeForm"));
+var _CreateEmployeeForm = _interopRequireDefault(require("../Forms/CreateEmployeeForm"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

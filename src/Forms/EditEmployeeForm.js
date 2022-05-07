@@ -10,7 +10,7 @@ const EditEmployeeForm = ({setActive,id,firstName,setFirstName,lastName,setLastN
         e.preventDefault();
         const updatedPerson = {id,firstName:firstName,lastName:lastName};
         const responseData = await NetworkRequest("put",updatedPerson);
-        if (responseData === undefined){
+        if (responseData !== undefined){
             setPersons(persons.map(person => person.id === id ? {...responseData} : person));
         }
     }

@@ -17,6 +17,6 @@ const CustomDelete = async (req,id) => {
        ErrorCatcher(err,status);
     }
 
-    return{responseData}
+    return (responseData)
 }
 export default CustomDelete

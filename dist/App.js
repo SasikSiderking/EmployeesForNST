@@ -81,7 +81,6 @@ function App() {
                 if (response && response.data) {
                   setStatus(response.status);
                   setPersons(response.data);
-                  setLoading(false);
                   (0, _ReqNotification.default)(response.status);
                 }
 
@@ -103,6 +102,9 @@ function App() {
                 }
 
               case 10:
+                setLoading(false);
+
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -126,11 +128,11 @@ function App() {
       persons: persons,
       setPersons: setPersons
     }
-  }, status ? /*#__PURE__*/_react.default.createElement(_TableContent.default, {
+  }, /*#__PURE__*/_react.default.createElement(_TableContent.default, {
     persons: persons,
     status: status,
     loading: loading
-  }) : null, /*#__PURE__*/_react.default.createElement(_TableFoot.default, null)), /*#__PURE__*/_react.default.createElement(_reactToastify.ToastContainer, null)));
+  }), !loading && !status ? /*#__PURE__*/_react.default.createElement("b", null, "No persons? :(") : null, /*#__PURE__*/_react.default.createElement(_TableFoot.default, null)), /*#__PURE__*/_react.default.createElement(_reactToastify.ToastContainer, null)));
 }
 
 var _default = App;

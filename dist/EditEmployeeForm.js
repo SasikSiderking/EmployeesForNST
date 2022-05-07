@@ -60,7 +60,7 @@ var EditEmployeeForm = function EditEmployeeForm(_ref) {
             case 4:
               responseData = _context.sent;
 
-              if (responseData === undefined) {
+              if (responseData !== undefined) {
                 setPersons(persons.map(function (person) {
                   return person.id === id ? _objectSpread({}, responseData) : person;
                 }));

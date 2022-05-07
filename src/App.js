@@ -21,7 +21,6 @@ function App() {
                 if(response && response.data){
                     setStatus(response.status);
                     setPersons(response.data);
-                    setLoading(false);
                     ReqNotification(response.status)
                 }
             }
@@ -38,6 +37,7 @@ function App() {
                     console.log("Error: "+err);
                 }
             }
+            setLoading(false);
         }
         getPersons();
     },[])
@@ -50,7 +50,10 @@ function App() {
           <TableHead/>
 
           <PersonContext.Provider value={{persons: persons,setPersons: setPersons}}>
-              {status? <TableContent persons={persons} status={status} loading={loading}/> : null}
+
+              <TableContent persons={persons} status={status} loading={loading}/>
+
+              {(!loading && !status)? <b>No persons? :(</b> : null }
 
               <TableFoot/>
 

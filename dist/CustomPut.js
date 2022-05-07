@@ -48,9 +48,7 @@ var CustomPut = /*#__PURE__*/function () {
             (0, _ErrorCatcher.default)(_context.t0, status);
 
           case 16:
-            return _context.abrupt("return", {
-              responseData: responseData
-            });
+            return _context.abrupt("return", responseData);
 
           case 17:
           case "end":

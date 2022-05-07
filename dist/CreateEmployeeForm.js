@@ -81,8 +81,10 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
 
             case 3:
               setPersons([].concat(_toConsumableArray(persons), [Person]));
+              setFirstName("");
+              setLastName("");
 
-            case 4:
+            case 6:
             case "end":
               return _context.stop();
           }

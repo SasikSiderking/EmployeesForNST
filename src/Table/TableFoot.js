@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./table.css";
 import Modal from "../ModalW/Modal";
-import CreateEmployeeForm from "../forms/CreateEmployeeForm";
+import CreateEmployeeForm from "../Forms/CreateEmployeeForm";
 const TableFoot = () => {
     const[modalActive, setModalActive] = useState(false);
     return (

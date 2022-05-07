@@ -15,9 +15,9 @@ var _MakePersonRows = _interopRequireDefault(require("./MakePersonRows"));
 
 var _Modal = _interopRequireDefault(require("../ModalW/Modal"));
 
-var _DeleteEmployeeForm = _interopRequireDefault(require("../forms/DeleteEmployeeForm"));
+var _DeleteEmployeeForm = _interopRequireDefault(require("../Forms/DeleteEmployeeForm"));
 
-var _EditEmployeeForm = _interopRequireDefault(require("../forms/EditEmployeeForm"));
+var _EditEmployeeForm = _interopRequireDefault(require("../Forms/EditEmployeeForm"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

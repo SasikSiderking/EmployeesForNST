@@ -9,7 +9,7 @@ const DeleteEmployeeForm = ({id,firstName,lastName,setActive}) => {
         e.preventDefault();
         const Person = {id,firstName: null,lastName: null};
         const responseData = await NetworkRequest("delete",Person);
-        if(responseData === undefined){
+        if(responseData !== undefined){
             const newPersons = persons.filter(person => person.id !== id);
             setPersons(newPersons);
         }

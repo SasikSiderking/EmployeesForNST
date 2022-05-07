@@ -14,6 +14,8 @@ const CreateEmployeeForm=({setActive}) => {
         e.preventDefault();
         await NetworkRequest("post",Person);
         setPersons([...persons,Person])
+        setFirstName("");
+        setLastName("");
     }
 
     return(

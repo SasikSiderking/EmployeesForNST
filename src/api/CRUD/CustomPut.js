@@ -18,6 +18,6 @@ const CustomPut = async (req,updatedPerson) => {
     {
        ErrorCatcher(err,status);
     }
-    return {responseData}
+    return (responseData)
 }
 export default CustomPut

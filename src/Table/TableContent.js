@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import "./table.css";
 import MakePersonRows from "./MakePersonRows";
 import Modal from "../ModalW/Modal";
-import DeleteEmployeeForm from "../forms/DeleteEmployeeForm";
-import EditEmployeeForm from "../forms/EditEmployeeForm";
+import DeleteEmployeeForm from "../Forms/DeleteEmployeeForm";
+import EditEmployeeForm from "../Forms/EditEmployeeForm";
 
 const TableContent = ({persons,loading}) => {
 
