@@ -5,11 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
-
 var _v = _interopRequireDefault(require("../v1"));
 
-var _ReqNotification = _interopRequireDefault(require("../../ErrorCatching/ReqNotification"));
+var _ReqErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ReqErrorCatcher"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27,7 +25,7 @@ var CustomGet = /*#__PURE__*/function () {
             data = [];
             _context.prev = 1;
             _context.next = 4;
-            return _v.default.get(req ? req + "/" + id : req);
+            return _v.default.get(req ? "".concat(req, "/").concat(id) : req);
 
           case 4:
             response = _context.sent;
@@ -42,15 +40,7 @@ var CustomGet = /*#__PURE__*/function () {
           case 8:
             _context.prev = 8;
             _context.t0 = _context["catch"](1);
-
-            if (_context.t0.response) {
-              console.log(_context.t0.response.data);
-              console.log(_context.t0.response.status);
-              console.log(_context.t0.response.headers);
-            } else {
-              // ReqNotification(status);
-              console.log("Error: " + _context.t0);
-            }
+            (0, _ReqErrorCatcher.default)(_context.t0);
 
           case 11:
             return _context.abrupt("return", data);

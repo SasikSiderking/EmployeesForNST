@@ -11,13 +11,13 @@ require("./App.css");
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactToastify = require("react-toastify");
+
 var _TableHead = _interopRequireDefault(require("./Table/TableHead"));
 
 var _TableContent = _interopRequireDefault(require("./Table/TableContent"));
 
 var _TableFoot = _interopRequireDefault(require("./Table/TableFoot"));
-
-var _reactToastify = require("react-toastify");
 
 var _ReqNotification = _interopRequireDefault(require("./ErrorCatching/ReqNotification"));
 
@@ -73,7 +73,7 @@ function App() {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _v.default.get("/persons");
+                return _v.default.get('/persons');
 
               case 3:
                 response = _context.sent;
@@ -98,7 +98,7 @@ function App() {
                   (0, _ReqNotification.default)(_context.t0.response.status);
                 } else {
                   (0, _ReqNotification.default)(404);
-                  console.log("Error: " + _context.t0);
+                  console.log("Error: ".concat(_context.t0));
                 }
 
               case 10:

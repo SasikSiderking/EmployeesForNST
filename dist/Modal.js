@@ -11,15 +11,15 @@ require("./modal.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Modal = function Modal(_ref) {
+function Modal(_ref) {
   var active = _ref.active,
       form = _ref.form;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: active ? "ModalBackground active" : "ModalBackground"
+    className: active ? 'ModalBackground active' : 'ModalBackground'
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: active ? "ModalContent active" : "ModalContent"
+    className: active ? 'ModalContent active' : 'ModalContent'
   }, form));
-};
+}
 
 var _default = Modal;
 exports.default = _default;

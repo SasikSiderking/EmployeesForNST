@@ -45,15 +45,15 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
+function CreateEmployeeForm(_ref) {
   var setActive = _ref.setActive;
 
-  var _useState = (0, _react.useState)(""),
+  var _useState = (0, _react.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       firstName = _useState2[0],
       setFirstName = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(""),
+  var _useState3 = (0, _react.useState)(''),
       _useState4 = _slicedToArray(_useState3, 2),
       lastName = _useState4[0],
       setLastName = _useState4[1];
@@ -77,12 +77,12 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
             case 0:
               e.preventDefault();
               _context.next = 3;
-              return (0, _NetworkRequest.default)("post", Person);
+              return (0, _NetworkRequest.default)('post', Person);
 
             case 3:
               setPersons([].concat(_toConsumableArray(persons), [Person]));
-              setFirstName("");
-              setLastName("");
+              setFirstName('');
+              setLastName('');
 
             case 6:
             case "end":
@@ -128,7 +128,7 @@ var CreateEmployeeForm = function CreateEmployeeForm(_ref) {
     type: "submit",
     className: "Save-Button"
   }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")));
-};
+}
 
 var _default = CreateEmployeeForm;
 exports.default = _default;

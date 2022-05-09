@@ -5,17 +5,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _employeeSquare = _interopRequireDefault(require("../images/employee-square.png"));
 
 var _edit = _interopRequireDefault(require("../images/edit.png"));
 
 var _delete = _interopRequireDefault(require("../images/delete.png"));
 
-var _react = _interopRequireDefault(require("react"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var PersonRow = function PersonRow(props) {
+function PersonRow(props) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "List Content"
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -49,7 +49,7 @@ var PersonRow = function PersonRow(props) {
     alt: "delete",
     className: "App-icon"
   }))));
-};
+}
 
 var _default = PersonRow;
 exports.default = _default;

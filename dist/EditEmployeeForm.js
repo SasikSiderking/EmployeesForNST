@@ -29,7 +29,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var EditEmployeeForm = function EditEmployeeForm(_ref) {
+function EditEmployeeForm(_ref) {
   var setActive = _ref.setActive,
       id = _ref.id,
       firstName = _ref.firstName,
@@ -42,7 +42,7 @@ var EditEmployeeForm = function EditEmployeeForm(_ref) {
       setPersons = _useContext.setPersons;
 
   var handleEdit = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e, id, firstName, lastName) {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
       var updatedPerson, responseData;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -50,12 +50,12 @@ var EditEmployeeForm = function EditEmployeeForm(_ref) {
             case 0:
               e.preventDefault();
               updatedPerson = {
-                id: id,
+                undefined: undefined,
                 firstName: firstName,
                 lastName: lastName
               };
               _context.next = 4;
-              return (0, _NetworkRequest.default)("put", updatedPerson);
+              return (0, _NetworkRequest.default)('put', updatedPerson, id);
 
             case 4:
               responseData = _context.sent;
@@ -74,7 +74,7 @@ var EditEmployeeForm = function EditEmployeeForm(_ref) {
       }, _callee);
     }));
 
-    return function handleEdit(_x, _x2, _x3, _x4) {
+    return function handleEdit(_x) {
       return _ref2.apply(this, arguments);
     };
   }();
@@ -86,13 +86,13 @@ var EditEmployeeForm = function EditEmployeeForm(_ref) {
     }
   }, /*#__PURE__*/_react.default.createElement("header", null, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u0430"), /*#__PURE__*/_react.default.createElement("div", {
     className: "Form-Content"
-  }, /*#__PURE__*/_react.default.createElement("a", {
-    onClick: function onClick() {
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: function onClick(e) {
+      e.preventDefault();
       setActive(false);
     },
     className: "Back-Button"
   }, "\u041D\u0430\u0437\u0430\u0434 \u043A \u0441\u043F\u0438\u0441\u043A\u0443"), /*#__PURE__*/_react.default.createElement("input", {
-    autoFocus: true,
     type: "text",
     required: true,
     value: firstName,
@@ -110,7 +110,7 @@ var EditEmployeeForm = function EditEmployeeForm(_ref) {
     type: "submit",
     className: "Save-Button"
   }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")));
-};
+}
 
 var _default = EditEmployeeForm;
 exports.default = _default;

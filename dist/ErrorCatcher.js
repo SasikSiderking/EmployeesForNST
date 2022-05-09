@@ -17,7 +17,7 @@ var ErrorCatcher = function ErrorCatcher(err, status) {
     (0, _ReqNotification.default)(err.response.status);
   } else {
     (0, _ReqNotification.default)(status);
-    console.log("Error: " + err);
+    console.log("Error: ".concat(err));
   }
 };
 

@@ -13,21 +13,28 @@ var _CustomDelete = _interopRequireDefault(require("./CRUD/CustomDelete"));
 
 var _CustomPut = _interopRequireDefault(require("./CRUD/CustomPut"));
 
+var _v = require("./v1");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NetworkRequest = function NetworkRequest(request, Person) {
+var NetworkRequest = function NetworkRequest(request, Person, id) {
   switch (request) {
-    case "get":
-      return (0, _CustomGet.default)("/persons", Person ? Person.id : null);
+    case 'get':
+      return (0, _CustomGet.default)(_v.getReq, Person ? Person.id : null);
 
-    case "post":
-      return (0, _CustomPost.default)("/persons", Person);
+    case 'post':
+      return (0, _CustomPost.default)(_v.postReq, Person);
 
-    case "delete":
-      return (0, _CustomDelete.default)("/persons", Person.id);
+    case 'delete':
+      return (0, _CustomDelete.default)(_v.deleteReq, Person.id);
 
-    case "put":
-      return (0, _CustomPut.default)("/persons", Person);
+    case 'put':
+      return (0, _CustomPut.default)(_v.putReq, Person, id);
+
+    default:
+      {
+        return 0;
+      }
   }
 };
 

@@ -5,11 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
-
 var _v = _interopRequireDefault(require("../v1"));
 
-var _ErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ErrorCatcher"));
+var _ReqErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ReqErrorCatcher"));
 
 var _ReqNotification = _interopRequireDefault(require("../../ErrorCatching/ReqNotification"));
 
@@ -41,7 +39,7 @@ var CustomPost = /*#__PURE__*/function () {
           case 9:
             _context.prev = 9;
             _context.t0 = _context["catch"](1);
-            (0, _ErrorCatcher.default)(_context.t0, status);
+            (0, _ReqErrorCatcher.default)(_context.t0, status);
 
           case 12:
             return _context.abrupt("return", status);

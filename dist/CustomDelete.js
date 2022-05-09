@@ -5,13 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
-
 var _v = _interopRequireDefault(require("../v1"));
 
 var _ReqNotification = _interopRequireDefault(require("../../ErrorCatching/ReqNotification"));
 
-var _ErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ErrorCatcher"));
+var _ReqErrorCatcher = _interopRequireDefault(require("../../ErrorCatching/ReqErrorCatcher"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,34 +24,32 @@ var CustomDelete = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            responseData = undefined;
-            status = undefined;
-            _context.prev = 2;
-            _context.next = 5;
-            return _v.default.delete(req + "/" + id);
+            _context.prev = 0;
+            _context.next = 3;
+            return _v.default.delete("".concat(req, "/").concat(id));
 
-          case 5:
+          case 3:
             response = _context.sent;
             status = response.status;
             (0, _ReqNotification.default)(status);
             responseData = response.data;
-            _context.next = 14;
+            _context.next = 12;
             break;
 
-          case 11:
-            _context.prev = 11;
-            _context.t0 = _context["catch"](2);
-            (0, _ErrorCatcher.default)(_context.t0, status);
+          case 9:
+            _context.prev = 9;
+            _context.t0 = _context["catch"](0);
+            (0, _ReqErrorCatcher.default)(_context.t0, status);
 
-          case 14:
+          case 12:
             return _context.abrupt("return", responseData);
 
-          case 15:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[2, 11]]);
+    }, _callee, null, [[0, 9]]);
   }));
 
   return function CustomDelete(_x, _x2) {

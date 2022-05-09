@@ -11,7 +11,7 @@ require("./table.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TableHead = function TableHead() {
+function TableHead() {
   return /*#__PURE__*/_react.default.createElement("header", {
     className: "List Head"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -21,7 +21,7 @@ var TableHead = function TableHead() {
   }, "\u0424\u0430\u043C\u0438\u043B\u0438\u044F"), /*#__PURE__*/_react.default.createElement("div", {
     className: "Functional-Buttons"
   }));
-};
+}
 
 var _default = TableHead;
 exports.default = _default;

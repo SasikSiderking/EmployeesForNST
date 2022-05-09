@@ -37,21 +37,21 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var TableContent = function TableContent(_ref) {
+function TableContent(_ref) {
   var persons = _ref.persons,
       loading = _ref.loading;
 
-  var _useState = (0, _react.useState)(null),
+  var _useState = (0, _react.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
       id = _useState2[0],
       setId = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(""),
+  var _useState3 = (0, _react.useState)(''),
       _useState4 = _slicedToArray(_useState3, 2),
       firstName = _useState4[0],
       setFirstName = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(""),
+  var _useState5 = (0, _react.useState)(''),
       _useState6 = _slicedToArray(_useState5, 2),
       lastName = _useState6[0],
       setLastName = _useState6[1];
@@ -66,22 +66,29 @@ var TableContent = function TableContent(_ref) {
       modalEditActive = _useState10[0],
       setModalEditActive = _useState10[1];
 
-  var deleteButtonHandler = function deleteButtonHandler(id, firstName, lastName) {
+  var deleteButtonHandler = function deleteButtonHandler() {
     setId(id);
     setFirstName(firstName);
     setLastName(lastName);
     setModalDeleteActive(true);
   };
 
-  var editButtonHandler = function editButtonHandler(id, firstName, lastName) {
+  var editButtonHandler = function editButtonHandler() {
     setId(id);
     setFirstName(firstName);
     setLastName(lastName);
     setModalEditActive(true);
   };
 
-  if (loading) return /*#__PURE__*/_react.default.createElement("h1", null, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...");
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _MakePersonRows.default)(persons, deleteButtonHandler, editButtonHandler), /*#__PURE__*/_react.default.createElement(_Modal.default, {
+  if (loading) {
+    return /*#__PURE__*/_react.default.createElement("h1", null, "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430...");
+  }
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _MakePersonRows.default)({
+    persons: persons,
+    deleteButtonHandler: deleteButtonHandler,
+    editButtonHandler: editButtonHandler
+  }), /*#__PURE__*/_react.default.createElement(_Modal.default, {
     active: modalDeleteActive,
     form: /*#__PURE__*/_react.default.createElement(_DeleteEmployeeForm.default, {
       id: id,
@@ -100,7 +107,7 @@ var TableContent = function TableContent(_ref) {
       setActive: setModalEditActive
     })
   }));
-};
+}
 
 var _default = TableContent;
 exports.default = _default;

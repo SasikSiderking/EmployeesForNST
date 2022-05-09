@@ -33,7 +33,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var TableFoot = function TableFoot() {
+function TableFoot() {
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       modalActive = _useState2[0],
@@ -51,7 +51,7 @@ var TableFoot = function TableFoot() {
       setActive: setModalActive
     })
   }));
-};
+}
 
 var _default = TableFoot;
 exports.default = _default;
