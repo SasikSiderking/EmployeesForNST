@@ -35,7 +35,7 @@ function TableContent({ persons, loading }) {
   return (
     <>
       {
-                MakePersonRows({ persons, deleteButtonHandler, editButtonHandler })
+        MakePersonRows({ persons, deleteButtonHandler, editButtonHandler })
             }
       <Modal
         active={modalDeleteActive}

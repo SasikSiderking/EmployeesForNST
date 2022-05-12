@@ -51,6 +51,7 @@
 .Employee-icon{
     -ms-grid-column: 1;
     -ms-grid-row: 1;
+    height: 8vw;
 }
 .Employee-name,.Employee-second-name{
     text-align: left;
