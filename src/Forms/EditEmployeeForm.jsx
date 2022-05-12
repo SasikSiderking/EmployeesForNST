@@ -14,6 +14,7 @@ function EditEmployeeForm({
     if (responseData !== undefined) {
       setPersons(persons.map((person) => (person.id === id ? { ...responseData } : person)));
     }
+    setActive(false);
   };
 
   return (

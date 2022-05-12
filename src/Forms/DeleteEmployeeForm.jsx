@@ -16,6 +16,7 @@ function DeleteEmployeeForm({
       const newPersons = persons.filter((person) => person.id !== id);
       setPersons(newPersons);
     }
+    setActive(false);
   };
 
   return (

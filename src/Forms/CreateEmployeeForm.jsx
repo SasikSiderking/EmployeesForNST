@@ -17,6 +17,7 @@ function CreateEmployeeForm({ setActive }) {
     setPersons([...persons, Person]);
     setFirstName('');
     setLastName('');
+    setActive(false);
   };
 
   return (

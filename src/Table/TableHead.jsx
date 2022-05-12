@@ -4,6 +4,7 @@ import './table.css';
 function TableHead() {
   return (
     <header className="List Head">
+      <div />
       <div className="First-Name">
         Имя
       </div>

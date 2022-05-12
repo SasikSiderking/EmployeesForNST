@@ -22,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "testServer": "json-server -p 9000 -w ./employee_data/db.json",
+    "buildAndDeploy": "npm run build && serve -s build"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +56,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.5.0"
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "npm-run-all": "^4.1.5"
   }
 }
